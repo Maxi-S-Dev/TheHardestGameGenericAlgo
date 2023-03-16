@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\TheHardestGame\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj": {}
+    "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\TheHardestGame\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj": {
+    "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\TheHardestGame\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
+        "projectUniqueName": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
         "projectName": "TheHardestGame",
-        "projectPath": "D:\\GitHub\\TheHardestGame\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
+        "projectPath": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
         "packagesPath": "C:\\Users\\max03\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\TheHardestGame\\TheHardestGame\\TheHardestGame\\obj\\",
+        "outputPath": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

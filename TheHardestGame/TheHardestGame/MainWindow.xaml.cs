@@ -25,10 +25,10 @@ namespace TheHardestGame
         DispatcherTimer DP = new DispatcherTimer();
         DispatcherTimer MovementTimer;
 
-        int tickSpeed = 16;
+        int tickSpeed = 32;
 
         float speedY, speedX;
-        float speed = 2;
+        float speed = 3;
         bool up = false, down = false, left = false, right = false;
 
 
@@ -48,11 +48,11 @@ namespace TheHardestGame
 
             MovementTimer = new DispatcherTimer(DispatcherPriority.Send);
 
-            MovementTimer.Interval = TimeSpan.FromMilliseconds(10);
+            MovementTimer.Interval = TimeSpan.FromMilliseconds(16);
             MovementTimer.Tick += Movement;
            
 
-            DP.Interval = TimeSpan.FromMilliseconds(tickSpeed);
+            DP.Interval = TimeSpan.FromMilliseconds(16);
             DP.Tick += GameTick;
             DP.Start();
         }
@@ -143,7 +143,6 @@ namespace TheHardestGame
         {
             DP.Stop();
             ResultLabel.Content = "LOL Looser \n click 'R' to restart";
-            
         }
         private void CollideX()
         {
