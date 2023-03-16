@@ -14,7 +14,7 @@
                Margin="0, 10, 0, 0"
                HorizontalContentAlignment="Center"/>
 
-        <Canvas x:Name="Canvas" Focusable="True" KeyDown="ButtonPressed" KeyUp="ButtonReleased">
+        <Canvas x:Name="Canvas" Focusable="True">
 
             <!--#region ground texture-->
             <Rectangle Width="40" Height="40" Fill="#e6e6ff" Canvas.Left="560" Canvas.Top="97"/>

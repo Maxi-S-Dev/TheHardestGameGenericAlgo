@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -23,28 +25,44 @@ namespace TheHardestGame
     public partial class MainWindow : Window
     {
         DispatcherTimer DP = new DispatcherTimer();
-        DispatcherTimer MovementTimer;
 
         int tickSpeed = 32;
 
+<<<<<<< HEAD
         float speedY, speedX;
         float speed = 3;
+=======
+        float playerSpeedY, playerSpeedX, playerSpeed = 2;
+>>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
         bool up = false, down = false, left = false, right = false;
 
 
-        float enemySpeed = 12;
-        float firstSpeed;
-        float secondSpeed;
-        float thirdSpeed;
-        float fourthSpeed;
+        float enemySpeed = 12, firstSpeed, secondSpeed, thirdSpeed, fourthSpeed;
+
+        List<Chromosome> playerRects = new List<Chromosome>();
+
+        int interval = 8;
 
         public MainWindow()
         {
             InitializeComponent();
             Canvas.Focus();
 
+            for (int i = 0; i < 16; i++)
+            {
+                List<MoveDirections> list = getDirectionPattern(i);
+
+                Trace.WriteLine($"{list[0]} {list[1]}");
+            }
+
+
+
+
+            CreateCromosomes();
+
             firstSpeed = secondSpeed = thirdSpeed = fourthSpeed = enemySpeed;
 
+<<<<<<< HEAD
 
             MovementTimer = new DispatcherTimer(DispatcherPriority.Send);
 
@@ -53,29 +71,91 @@ namespace TheHardestGame
            
 
             DP.Interval = TimeSpan.FromMilliseconds(16);
+=======
+            DP.Interval = TimeSpan.FromMilliseconds(tickSpeed);
+>>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
             DP.Tick += GameTick;
-            DP.Start();
+            //DP.Start();
         }
 
         void GameTick(object? sender, EventArgs e)
         {
+            Movement();
             MoveEnemys();
             CheckWin();
         }
 
-        private void CheckWin()
+        private void CreateCromosomes()
         {
-            Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
-            Rect winHB = new Rect(Canvas.GetLeft(WinZone), Canvas.GetTop(WinZone), WinZone.Width, WinZone.Height);
+            for (int i = 0; i < 16; i++)
+            {
+                Rectangle r = new Rectangle();
+                Chromosome chromosome = new();
 
-            if (PlayerHB.IntersectsWith(winHB)) WinGame();
+                chromosome.mesh = r;
+
+                Canvas.Children.Add(r);
+                r.Width = 26; r.Height = 26;
+                r.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0)); r.StrokeThickness = 3;
+                r.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+
+                Canvas.SetLeft(r, 87); Canvas.SetTop(r, 209);
+
+                playerRects.Add(chromosome);
+            }
         }
 
-        private void WinGame()
+
+        private List<MoveDirections> getDirectionPattern (int variation)
         {
-            ResultLabel.Content = "wow you actually won \n Press 'r' if you hate yourself";
-            DP.Stop();
+            List<MoveDirections> list = new();
+
+            switch(variation / 4)
+            {
+                case 0:
+                    list.Add(MoveDirections.up);
+                    break;
+
+                case 1:
+                    list.Add(MoveDirections.down);
+                    break;
+
+                case 2:
+                    list.Add(MoveDirections.left);
+                    break;
+
+               case 3:
+                    list.Add(MoveDirections.right);
+                    break;
+            }
+
+            switch(variation % 4)
+            {
+                case 0:
+                    list.Add(MoveDirections.up);
+                    break;
+
+                case 1:
+                    list.Add(MoveDirections.down);
+                    break;
+
+                case 2:
+                    list.Add(MoveDirections.left);
+                    break;
+
+                case 3:
+                    list.Add(MoveDirections.right);
+                    break;
+            }
+
+
+
+            return list;
         }
+
+
+
+
 
         private void MoveEnemys()
         {
@@ -98,26 +178,35 @@ namespace TheHardestGame
             if (Canvas.GetLeft(FourthRow) > 572) fourthSpeed *= -1;
         }
 
-        private void Movement(object? sender, EventArgs e)
+        private void Movement()
         {
             //speedX = speedY = 0;
 
-            if (up) speedY -= speed;
-            if (down) speedY += speed;
+            if (up) playerSpeedY -= playerSpeed;
+            if (down) playerSpeedY += playerSpeed;
 
             //Trace.WriteLine(left + " " + speedX);
-            if (left) speedX -= speed;
-            if (right) speedX += speed;
+            if (left) playerSpeedX -= playerSpeed;
+            if (right) playerSpeedX += playerSpeed;
 
-            speedX = speedX * 0.5f;
-            speedY = speedY * 0.5f;
+            playerSpeedX = playerSpeedX * 0.5f;
+            playerSpeedY = playerSpeedY * 0.5f;
 
             
-            Canvas.SetLeft(Player, Canvas.GetLeft(Player) + speedX);
+            Canvas.SetLeft(Player, Canvas.GetLeft(Player) + playerSpeedX);
             CollideX();
 
-            Canvas.SetTop(Player, Canvas.GetTop(Player) + speedY);
+            Canvas.SetTop(Player, Canvas.GetTop(Player) + playerSpeedY);
             CollideY();
+        }
+
+
+        private void CheckWin()
+        {
+            Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
+            Rect winHB = new Rect(Canvas.GetLeft(WinZone), Canvas.GetTop(WinZone), WinZone.Width, WinZone.Height);
+
+            if (PlayerHB.IntersectsWith(winHB)) WinGame();
         }
 
         private void Collide()
@@ -139,11 +228,14 @@ namespace TheHardestGame
             }
         }
 
+<<<<<<< HEAD
         private void GameOver()
         {
             DP.Stop();
             ResultLabel.Content = "LOL Looser \n click 'R' to restart";
         }
+=======
+>>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
         private void CollideX()
         {
             Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);
@@ -156,14 +248,13 @@ namespace TheHardestGame
 
                     if (PlayerHB.IntersectsWith(colliderHB))
                     {
-                        Canvas.SetLeft(Player, Canvas.GetLeft(Player) - speedX);
-                        speedX = 0;
+                        Canvas.SetLeft(Player, Canvas.GetLeft(Player) - playerSpeedX);
+                        playerSpeedX = 0;
                         return;
                     }
                 }
             }
         }
-
 
         private void CollideY()
         {
@@ -177,42 +268,26 @@ namespace TheHardestGame
 
                     if (PlayerHB.IntersectsWith(colliderHB))
                     {
-                        Canvas.SetTop(Player, Canvas.GetTop(Player) - speedY);
-                        speedY = 0;
+                        Canvas.SetTop(Player, Canvas.GetTop(Player) - playerSpeedY);
+                        playerSpeedY = 0;
                         return;
                     }
                 }
             }
         }
 
-        private void ButtonPressed(object sender, KeyEventArgs e)
+
+        private void WinGame()
         {
-            if (e.IsRepeat) return;
+            ResultLabel.Content = "wow you actually won \n Press 'r' if you hate yourself";
+            DP.Stop();
+        }
 
-            switch (e.Key)
-            {
-                case Key.W: 
-                    up = true;
-                    break;
-                
-                case Key.S: 
-                    down = true;
-                    break;
+        private void GameOver()
+        {
+            DP.Stop();
+            ResultLabel.Content = "LOL Looser \n click 'R' to restart";
 
-                case Key.D:
-                    right = true;
-                    break;
-
-                case Key.A:
-                    left = true;
-                    break;
-
-                case Key.R:
-                    resetGame();
-                    break;
-            }
-            MovementTimer.Start();
-            Movement(sender, e);
         }
 
         private void resetGame()
@@ -226,29 +301,13 @@ namespace TheHardestGame
 
             DP.Start();
         }
-
-        private void ButtonReleased(object sender, KeyEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Key.W:
-                    up = false;
-                    break;
-
-                case Key.S:
-                    down = false;
-                    break;
-
-                case Key.D:
-                    right = false;
-                    break;
-
-                case Key.A:
-                    left = false;
-                    break;
-            }
-
-            if(!(left || right || up || down)) MovementTimer.Stop();
-        }
     }
 }
+
+
+
+
+///TODO
+///Spawn 50 rectangles
+///Add AI Logic (good things, bad things)
+///Connect AI with rects

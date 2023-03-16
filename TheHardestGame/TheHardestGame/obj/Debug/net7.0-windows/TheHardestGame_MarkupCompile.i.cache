@@ -4,17 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\GitHub\TheHardestGameGenericAlgo\TheHardestGame\TheHardestGame\obj\Debug\net7.0-windows\
+=======
+D:\GitHub\TheHardestGameGenericAlgo\TheHardestGame\TheHardestGame\obj\Debug\net7.0-windows\
+>>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
 TheHardestGame
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
+<<<<<<< HEAD
 C:\GitHub\TheHardestGameGenericAlgo\TheHardestGame\TheHardestGame\App.xaml
 11407045341
 
 5453575485
+=======
+D:\GitHub\TheHardestGameGenericAlgo\TheHardestGame\TheHardestGame\App.xaml
+11407045341
+
+6-205358586
+>>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
 198-2048575587
 MainWindow.xaml;
 
-False
+True
 
