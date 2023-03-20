@@ -28,12 +28,8 @@ namespace TheHardestGame
 
         int tickSpeed = 32;
 
-<<<<<<< HEAD
-        float speedY, speedX;
-        float speed = 3;
-=======
-        float playerSpeedY, playerSpeedX, playerSpeed = 2;
->>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
+        float playerSpeedX, playerSpeedY;
+
         bool up = false, down = false, left = false, right = false;
 
 
@@ -55,25 +51,10 @@ namespace TheHardestGame
                 Trace.WriteLine($"{list[0]} {list[1]}");
             }
 
-
-
-
             CreateCromosomes();
 
             firstSpeed = secondSpeed = thirdSpeed = fourthSpeed = enemySpeed;
 
-<<<<<<< HEAD
-
-            MovementTimer = new DispatcherTimer(DispatcherPriority.Send);
-
-            MovementTimer.Interval = TimeSpan.FromMilliseconds(16);
-            MovementTimer.Tick += Movement;
-           
-
-            DP.Interval = TimeSpan.FromMilliseconds(16);
-=======
-            DP.Interval = TimeSpan.FromMilliseconds(tickSpeed);
->>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
             DP.Tick += GameTick;
             //DP.Start();
         }
@@ -178,28 +159,6 @@ namespace TheHardestGame
             if (Canvas.GetLeft(FourthRow) > 572) fourthSpeed *= -1;
         }
 
-        private void Movement()
-        {
-            //speedX = speedY = 0;
-
-            if (up) playerSpeedY -= playerSpeed;
-            if (down) playerSpeedY += playerSpeed;
-
-            //Trace.WriteLine(left + " " + speedX);
-            if (left) playerSpeedX -= playerSpeed;
-            if (right) playerSpeedX += playerSpeed;
-
-            playerSpeedX = playerSpeedX * 0.5f;
-            playerSpeedY = playerSpeedY * 0.5f;
-
-            
-            Canvas.SetLeft(Player, Canvas.GetLeft(Player) + playerSpeedX);
-            CollideX();
-
-            Canvas.SetTop(Player, Canvas.GetTop(Player) + playerSpeedY);
-            CollideY();
-        }
-
 
         private void CheckWin()
         {
@@ -228,14 +187,6 @@ namespace TheHardestGame
             }
         }
 
-<<<<<<< HEAD
-        private void GameOver()
-        {
-            DP.Stop();
-            ResultLabel.Content = "LOL Looser \n click 'R' to restart";
-        }
-=======
->>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
         private void CollideX()
         {
             Rect PlayerHB = new Rect(Canvas.GetLeft(Player), Canvas.GetTop(Player), Player.Width, Player.Height);

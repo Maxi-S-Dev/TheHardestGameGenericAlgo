@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "4phcjXaaY82FXpz5OvGmo3B0qLmYcDP+ntlkfNguqsm+J1WfembQiDUQ2jE0orVgJAVnBPyJ7BEpy0nkQHrtnw==",
   "success": true,
   "projectFilePath": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
-=======
-  "dgSpecHash": "JSrV5Xt+pyvuS2B9brFhPc48W9V+V8lib/jjHCOXCX/1t9l/1aW/Q11tP2ZBJi04y4Rt+/a8bzE2Np9j0lh44Q==",
-  "success": true,
-  "projectFilePath": "D:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
->>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem beim Lesen der Cachedatei \"C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\obj\\project.nuget.cache\": Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

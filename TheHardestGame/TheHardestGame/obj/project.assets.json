@@ -14,19 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
       "projectName": "TheHardestGame",
       "projectPath": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
       "packagesPath": "C:\\Users\\max03\\.nuget\\packages\\",
       "outputPath": "C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\obj\\",
-=======
-      "projectUniqueName": "D:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
-      "projectName": "TheHardestGame",
-      "projectPath": "D:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\TheHardestGame.csproj",
-      "packagesPath": "C:\\Users\\max03\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\obj\\",
->>>>>>> a3d1e5a5ac4abfda321869a6d618fb3827784686
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -81,5 +73,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem beim Lesen der Cachedatei \"C:\\GitHub\\TheHardestGameGenericAlgo\\TheHardestGame\\TheHardestGame\\obj\\project.nuget.cache\": Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
